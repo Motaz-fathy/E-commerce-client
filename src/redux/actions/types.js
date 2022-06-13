@@ -1,0 +1,43 @@
+// products types
+export const LODDING_PRODUCTS = "LODDING_PRODUCTS";
+export const SUCCES_PRODUCTS = "SUCCES_PRODUCTS";
+export const ERROR_PRODUCTS = "ERROR_PRODUCTS";
+export const ERROR_SINGLE_PRODUCT = 'ERROR_SINGLE_PRODUCT'
+export const SUCCES_SINGLE_PRODUCT = 'SUCCES_SINGLE_PRODUCT'
+export const LODDING_SINGLE_PRODUCT = 'LODDING_SINGLE_PRODUCT'
+// users types
+
+export const IS_AUTH_USER = "IS_AUTH_USER";
+export const INFO_USER = "INFO_USER";
+export const ERROR_USER = 'ERROR_USER' 
+
+// login types 
+
+export const USER_LOGIN_REQUEST = "USER_LOGIN_REQUEST";
+export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
+export const USER_LOGIN_FAIL = "USER_LOGIN_FAIL";
+
+// register types 
+
+
+export const USER_REGISTER_REQUEST = "USER_REGISTER_REQUEST";
+export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
+export const USER_REGISTER_FAIL = "USER_REGISTER_FAIL";
+
+
+// logout  types 
+
+export const USER_LOGOUT = "USER_LOGOUT"
+export const ORDER_LIST_MY_RESET = "ORDER_LIST_MY_RESET"
+
+//
+
+export const USER_DETAILS_REQUEST = "USER_DETAILS_REQUEST";
+export const USER_DETAILS_SUCCESS = "USER_DETAILS_SUCCESS";
+export const USER_DETAILS_FAIL = "USER_DETAILS_FAIL";
+export const USER_DETAILS_RESET = "USER_DETAILS_RESET";
+
+// cart types 
+
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const REMOVE_TO_CART = 'REMOVE_TO_CART'
