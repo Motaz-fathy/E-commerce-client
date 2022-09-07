@@ -21,18 +21,19 @@ const {user} = LoginReducer
       <BrowserRouter>
       <Routes>   
 
-   
+      <Route path="/:id"  element={<SingleProduct />}  ></Route>
       <Route path="/" element={<Home/>} exact></Route>
       <Route  path='/search/:keyword' exact element={<Home />} />
       <Route path='/search/' exact element={<Home />} />
       <Route path='/page/:pageNumber' exact element={<Home />} />
       <Route path='/search/:keyword/page/:pageNumber' exact element={<Home />} />
+ 
+      <Route path="/cart" exact element={<Cart />} ></Route>
       {user ? 
       <Route path="/profile" exact element={<Profile />} ></Route>
       :   <Route path="/profile" exact element={<Notfound />} ></Route>
-    }
-      <Route path="/cart/:id?" exact element={<Cart />} ></Route>
-      <Route path="/cart" exact element={<Cart />} ></Route>
+      }
+
       <Route path="/:id"  element={<SingleProduct />}  ></Route>
      
    
@@ -41,8 +42,7 @@ const {user} = LoginReducer
       <Route path='/search/' exact element={<Home />} />
       <Route path='/page/:pageNumber' exact element={<Home />} />
       <Route path='/search/:keyword/page/:pageNumber' exact element={<Home />} />
-      <Route path="/cart/:id?qty=:qty" exact element={<Cart />} ></Route>
-      <Route path="/:id"  element={<SingleProduct />}  ></Route>
+      
       <Route path="/register" exact element={<Register /> } ></Route>
       <Route path="/login" exact element={<Login />} ></Route>
      

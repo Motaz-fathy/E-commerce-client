@@ -5,7 +5,7 @@ body , * {
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  background-color: #f5faff;
+  background-color: #f6f1f1;
 }
 .container {
   width: 100%;
@@ -17,4 +17,7 @@ body {
 
 a{
   text-decoration: none;
+}
+a:hover {
+  color: black;
 }

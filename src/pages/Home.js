@@ -5,7 +5,6 @@ import { Footer } from "../components/footer";
 import "./pages.css";
 
 // import  pages
-import Header from "../components/Header";
 import  ShopSection  from "../components/homeComponent/shopSection";
 import { Navbar } from "../components/Navbar";
 const Home = () => {

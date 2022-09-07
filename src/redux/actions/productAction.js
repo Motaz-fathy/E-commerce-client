@@ -38,7 +38,6 @@ export const SingleProductAction = id => async dispatch => {
       type: LODDING_SINGLE_PRODUCT
     });
     const { data } = await axios.get(`${url}api/products/${id}`);
-    console.log(data)
     dispatch({
       type: SUCCES_SINGLE_PRODUCT,
       payload: data

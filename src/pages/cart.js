@@ -1,24 +1,27 @@
 import React from "react";
 import { Navbar } from "../components/Navbar";
-import { Footer } from "../components/footer";
+import { CartItem } from "../components/CartItem";
+import { useSelector } from "react-redux";
+import { Container, Grid } from "@mui/material";
 export const Cart = () => {
+  const cart = useSelector(state => state.cartReducer);
+  const { cartItems } = cart;
+  console.log(cartItems)
   return (
     <div>
-      <Navbar />
-      <div className="container mrt">
-        <div className="Messagecontent">
-          <div className="cartMessage"> Message </div>{" "}
-        </div>
-        <div className="Cartcontent">
-          <div className="container">
-            <div className="row">
-              <div className="col-3"> product image </div>
-              <div className="col-6">  </div>
-              <div className="col-3"> Remove </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Container maxWidth={"md"}>
+        <Grid container>
+          <Grid item md={6}>
+            {cartItems.length === 0
+              ? <div> this cart is empty </div>
+              : cartItems.map(item => <CartItem item={item} />)}
+          </Grid>
+          <Grid item md={6} ></Grid>
+        </Grid>
+      </Container>
+
     </div>
   );
 };
+
+/*  */

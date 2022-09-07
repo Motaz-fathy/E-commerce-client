@@ -1,61 +1,81 @@
 /* eslint-disable jsx-a11y/alt-text */
-import '../components/components.css'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router'
-import { useNavigate } from 'react-router-dom'
-import Loading from '../components/Loading'
-import {Navbar} from '../components/Navbar'
-import { SingleProductAction } from '../redux/actions/productAction'
-import Notfound from './Notfound'
-import '../components/components.css'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
+import { Navbar } from "../components/Navbar";
+import { SingleProductAction } from "../redux/actions/productAction";
+import "../pages/pages.css";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
+import { addToCart } from "../redux/actions/CartAction";
 export const SingleProduct = () => {
-const nav = useNavigate()  
-const [Qty , setQty]  = useState(0) 
-const ProductDetails = useSelector(state => state.ProductDetails)
-const {product , loading , error } = ProductDetails 
-const dispatch = useDispatch();
-const {id} = useParams() 
-useEffect(() => {
-dispatch(SingleProductAction(id))
-} ,[dispatch , id])
-const HandleAddtoCart = (e) => {
-e.preventDefault()
-nav(`/cart/${id}?qty=${Qty}`)
-}
+  const nav = useNavigate();
+  const [qty, setQty] = useState(1);
+  const ProductDetails = useSelector(state => state.ProductDetails);
+  const { product } = ProductDetails;
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const AddToCartHandle = () => {
+    dispatch(addToCart(id, qty));
+    nav("/cart");
+  };
+  useEffect(
+    () => {
+      dispatch(SingleProductAction(id));
+    },
+    [dispatch, id]
+  );
+
   return (
     <div>
-     <Navbar />
-      <div className='content'>
-         {loading ? <Loading /> : null}
-         {error ? <><h1><Notfound /></h1></> : product ? 
-         <>
-         
-         <div className='left'>
-           <img src={product.image} />
-           <div>review</div>
-         </div>
-         
-         <div className='right'>
-           <h1 className='productName'> name : {product.name}</h1>
-           <h5 className='productDesription'>desription : {product.desription}</h5>
-           <h5 className='productCategory'>category : {product.category}</h5>
-           <h5 className='productColor'>color : null</h5>
-           <h5 className='productPrice'>price : {product.price} $</h5>
-           <h5 className='totalPrice'>total Price : {}</h5>
-           <form>
-             <input type={"number"}
-             value={Qty} 
-              onChange={
-              e => setQty(e.target.value)
-             }/>
-             <input type={"submit"} value=" add to cart " onClick={HandleAddtoCart}/>
-           </form>
-         </div></>
-         :<Notfound />
-         }
-       
-      </div>
-     </div>
-  )
-}
+      <Navbar />
+
+      <Container maxWidth={"xl"}>
+        <Grid container className="singlecontainer">
+          <Grid container md={6} xs={12}>
+            <Grid item md={1} />
+            <Grid item md={5}>
+              <img src={product.image} alt={product.name}/>
+            </Grid>
+            <Grid item md={6} />
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <Grid container>
+              <Grid item md={2} />
+              <Grid item md={8} className="datafiled">
+               <div>
+               <div>{product.name}{""} price : {product.price}$</div>
+                <div>description : {product.desription}{""} </div>
+                <div> category : {product.category}{""} </div>
+                <div> countInStock :{product.countInStock}{""} </div>
+                <br></br>
+                 <div>total price : {qty * product.price} $</div>
+                <form>
+                  <TextField
+                    id="filled-number"
+                    label="Quntity"
+                    type="number"
+                    InputLabelProps={{
+                      shrink: true
+                    }}
+                    onChange={e => setQty(e.target.value)}
+                    variant="filled"
+                    value={qty}
+                  />
+
+                  <Button onClick={ AddToCartHandle} id="btn-addtocart">
+                    {" "}add to cart{" "}
+                  </Button>
+                </form>
+               </div>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
+    </div>
+  );
+};
