@@ -21,7 +21,9 @@ export const GetAllProduct = (state = {products : []}, action) => {
   }
 };
 
-export const ProductDetails = (state = {}, action) => {
+export const ProductDetails = (state ={ product : {}}, action) => {
+  console.log(action.payload)
+
   switch (action.type) {
     case LODDING_SINGLE_PRODUCT:
       return { loading: true , product : {}};

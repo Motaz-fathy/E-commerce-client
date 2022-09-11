@@ -7,12 +7,13 @@ import "./pages.css";
 // import  pages
 import  ShopSection  from "../components/homeComponent/shopSection";
 import { Navbar } from "../components/Navbar";
+import Header from "../components/Header";
 const Home = () => {
   const {keyword , pagenumber} = useParams()
   return (
     <>
     <Navbar />
-    <div className="adv"></div>
+    <Header />
     <div className="container">
   <div className="row">
     <div className="col-0">

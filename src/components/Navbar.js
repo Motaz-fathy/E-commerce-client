@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout, UserDetailsAction } from "../redux/actions/userAction";
@@ -10,15 +10,29 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const LoginReducer = useSelector(state => state.LoginReducer);
   const { user } = LoginReducer;
+  const [height , setHeight] = useState(false)
   const handleLogout = () => {
     dispatch(logout());
   };
   const handleUserDetails = () => {
     dispatch(UserDetailsAction());
   };
+  const changeBD = () =>  {
+    if(window.scrollY >= 100 )
+    {
+      setHeight(true)
+    }
+    else{
+      setHeight(false)
+
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', changeBD)
+  }, [])
   return (
     <div>
-      <nav>
+      <nav className={height ? "alternav" : ""}>
         <Container maxWidth={"xl"} >
           <Grid container c>
             <Grid container md={4} xs={6} className='container'>

@@ -124,6 +124,13 @@ color: black ;
 
 
 /* start cart page  */
+.cartcontainer {
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .mrt {
     display: block;
     padding-top: 4%;
@@ -151,7 +158,22 @@ color: black ;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: auto;
+    height: 100%;
+}
+.paybtn {
+   
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: #1477c3;
+    color: white;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+.paybtn:hover {
+    background-color: #1a8be2;
 }
 /* end cart page  */
 
@@ -164,10 +186,14 @@ color: black ;
 }
 .singlecontainer {
     width: 100%;
-    height: auto;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.singlecontainer img {
+    width: 300px;
+    height: 300px;
 }
 .singlecontainer form {
     display: flex;
