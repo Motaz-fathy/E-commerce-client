@@ -16,7 +16,7 @@ export const CartItem = ({ item }) => {
     <Container maxWidth={"xl"}>
       <Grid container md={12} xs={12} className="cartitembody" key={item._id}>
         <Grid md={6} xs={6} className='leftItems'>
-          <img src={item.image} />
+          <img src={`/images/${item.image}`} />
           <h5>{item.name}</h5>
          <input type={'number'} placeholder={item.qty}/>
         </Grid>

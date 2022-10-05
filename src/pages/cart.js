@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar } from "../components/Navbar";
 import { CartItem } from "../components/CartItem";
 import { useSelector } from "react-redux";
-import { Button, Container, Grid } from "@mui/material";
+import {  Container, Grid } from "@mui/material";
 import "./pages.css";
 export const Cart = () => {
   const cart = useSelector(state => state.cartReducer);
@@ -10,6 +10,7 @@ export const Cart = () => {
 
   return (
     <div>
+      <Navbar />
       <Container maxWidth={"md"}>
         <Grid container className="cartcontainer">
           <Grid item md={12} xs={12}>
@@ -29,7 +30,11 @@ export const Cart = () => {
             </span>
           </Grid>
           <Grid md={12} xs={12}>
-            <button className="paybtn"> pay </button>
+            {cartItems.length === 0 ? 
+              <button disabled className="paybtn"> pay </button>
+            :
+            <button  className="paybtn"> pay </button>
+            }
           </Grid>
         </Grid>
       </Container>

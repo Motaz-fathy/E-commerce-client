@@ -10,9 +10,11 @@ import { Navbar } from "../components/Navbar";
 import Header from "../components/Header";
 const Home = () => {
   const {keyword , pagenumber} = useParams()
+  console.log(pagenumber)
   return (
     <>
     <Navbar />
+    
     <Header />
     <div className="container">
   <div className="row">

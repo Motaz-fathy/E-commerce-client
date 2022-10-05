@@ -8,5 +8,5 @@ export const Reducers = combineReducers({
     RegisterReducer ,
     userDetailsReducer,
     ProductDetails,
-     cartReducer
+    cartReducer
 })
