@@ -7,14 +7,13 @@ const Search = () => {
 
   const SearchHandeler = (e) => {
     e.preventDefault()
-    if (keyword.trim() && keyword.trim() !== true ) {
+    if ( keyword.trim() ) {
       nav(`/search/${keyword}`);
     }
     else {
       nav(`/`);
-    }
+      }
   };
-  console.log(keyword)
 
   return (
     <div className="container">

@@ -10,12 +10,12 @@ import {
 
 const url = "http://localhost:8000/";
 
-export const Listproduct = (keyword = " ") => async dispatch => {
+export const Listproduct = (keyword = " " , pageNumber = " ") => async dispatch => {
   try {
     dispatch({
       type: LODDING_PRODUCTS
     });
-    const { data } = await axios.get(`${url}api/products?keyword=${keyword}`);
+    const { data } = await axios.get(`${url}api/products?keyword=${keyword}&pageNumber=${pageNumber}`);
 
     dispatch({
       type: SUCCES_PRODUCTS,

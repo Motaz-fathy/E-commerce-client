@@ -7,13 +7,19 @@ import {
   ERROR_SINGLE_PRODUCT
 } from "../actions/types";
 
+const initstate = {
+  products : [] ,
+  pages : null ,
+  page : null 
+}
 
-export const GetAllProduct = (state = {products : []}, action) => {
+export const GetAllProduct = (state = initstate, action) => {
+  console.log(action.payload)
   switch (action.type) {
     case LODDING_PRODUCTS:
       return { loading: true , products : []};
     case SUCCES_PRODUCTS:
-      return { loading: false, products: action.payload.products };
+      return { loading: false, products: action.payload.products , pages : action.payload.pages ,page :  action.payload.page};
     case ERROR_PRODUCTS:
       return { loading: false, error: action.payload };
     default:
